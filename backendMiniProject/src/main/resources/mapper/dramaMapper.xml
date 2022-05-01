@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.campus.myapp.dao.DramaDAO">
+	<select id="dramaList" resultType="com.campus.myapp.vo.DramaVO">
+		select dno, dsubject,dposter from drama
+		order by dno;
+	</select>
+</mapper>

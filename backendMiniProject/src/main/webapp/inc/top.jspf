@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="url" value="<%=request.getContextPath()%>"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" href="${url}/css/style.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="top">
+	<c:if test="${logStatus!='Y' }">
+		<a href="${url }/member/loginForm">로그인</a>
+		<a href="${url }/member/memberForm">회원가입</a>
+	</c:if>
+	<c:if test="${logStatus=='Y' }">
+		<c:if test="${logAdmin==9 }">
+			<b style="color:#E1F5FE;">관리자모드</b>&nbsp;<a href="${url }/member/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${logAdmin!=9 }">
+			<b>${logId }님</b>&nbsp;<a href="${url }/member/logout">로그아웃</a>
+		</c:if>
+			<a href="${url }/member/memberEdit">회원정보수정</a>
+	</c:if>
+</div>
+<div class="topMenu">
+	<ul>
+		<li id="logo"><a href="/myapp/">DVIEW</a><li>
+		<li><a href="/myapp/">HOME</a></li>
+		<li><a href="${url }/drama/dramaList">드라마</a></li>
+		<li><a href="/myapp/review/reviewList">REVIEW</a></li>
+		<li><a href="#">MY</a></li>
+	</ul>
+</div>
+</body>
+</html>
